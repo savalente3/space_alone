@@ -6,14 +6,21 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1024, 720), "Space Alone", sf::Style::Close | sf::Style::Resize);
-	sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 720.0f));
+	//sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 720.0f));
+
+	sf::Texture backgroundTexture;
+	backgroundTexture.loadFromFile("C:/Users/Wallef/Pictures/background.jpg");
+	sf::Sprite background;
+	background.setTexture(backgroundTexture);
+	background.setPosition(-50.0f, 0.0f);
+
 
 	sf::Texture playerTexture;
 	playerTexture.loadFromFile("C:/Users/Wallef/Pictures/tux.png");
 
 	Player player(&playerTexture, sf::Vector2u(3, 2), 0.3f, 100.0f);
 
-	Enemy enemy(nullptr, sf::Vector2f(50.0f, 50.0f), sf::Vector2f(500.0f, 200.0f));
+	Enemy enemy(nullptr, sf::Vector2f(1100.0f, 220.0f), sf::Vector2f(510.0f, 700.0f));
 
 	float deltaTime = 0.0f;
 	sf::Clock clock;
@@ -38,14 +45,15 @@ int main()
 			}
 		}
 
-		view.setCenter(player.getPosition());
+		//view.setCenter(player.getPosition());
 		player.update(deltaTime);
 
 		Collider playerCollider = player.getCollider();
-		enemy.getCollider().checkCollision(playerCollider, 0.5f);
+		enemy.getCollider().checkCollision(playerCollider, 1.0f);
 
-		window.clear(sf::Color(150, 150, 150));
-		window.setView(view);
+		window.clear();
+		window.draw(background);
+		//window.setView(view);
 		player.draw(window);
 		enemy.draw(window);
 		window.display();
