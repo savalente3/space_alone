@@ -16,11 +16,13 @@ int main()
 
 
 	sf::Texture playerTexture;
-	playerTexture.loadFromFile("C:/Users/Wallef/Pictures/tux.png");
+	playerTexture.loadFromFile("C:/Users/Wallef/Pictures/robot.png");
 
-	Player player(&playerTexture, sf::Vector2u(3, 2), 0.3f, 100.0f);
+	Player player(&playerTexture, sf::Vector2u(3, 2), 0.3f, 100.0f, 200.0f);
 
-	Enemy enemy(nullptr, sf::Vector2f(1100.0f, 220.0f), sf::Vector2f(510.0f, 700.0f));
+	sf::Texture enemyTexture;
+	enemyTexture.loadFromFile("C:/Users/Wallef/Pictures/platform.png");
+	Enemy enemy(&enemyTexture, sf::Vector2f(1100.0f, 220.0f), sf::Vector2f(510.0f, 700.0f));
 
 	float deltaTime = 0.0f;
 	sf::Clock clock;
@@ -48,8 +50,12 @@ int main()
 		//view.setCenter(player.getPosition());
 		player.update(deltaTime);
 
+		sf::Vector2f direction;
 		Collider playerCollider = player.getCollider();
-		enemy.getCollider().checkCollision(playerCollider, 1.0f);
+		if (enemy.getCollider().checkCollision(playerCollider, direction, 1.0f));
+		{
+			player.onCollision(direction);
+		}
 
 		window.clear();
 		window.draw(background);

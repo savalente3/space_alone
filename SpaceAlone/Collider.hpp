@@ -9,7 +9,7 @@ public:
 	Collider(sf::RectangleShape &body);
 	~Collider();
 
-	bool checkCollision(Collider &other, float push);
+	bool checkCollision(Collider &other, sf::Vector2f &direction, float push);
 
 	// so we don't have to make body a public variable
 	sf::Vector2f getPosition() { return body.getPosition(); }

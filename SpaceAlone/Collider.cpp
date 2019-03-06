@@ -10,7 +10,7 @@ Collider::~Collider()
 
 }
 
-bool Collider::checkCollision(Collider &other, float push)
+bool Collider::checkCollision(Collider &other, sf::Vector2f &direction, float push)
 {
 	sf::Vector2f otherPosition = other.getPosition();
 	sf::Vector2f otherHalfSize = other.getHalfSize();
@@ -34,11 +34,17 @@ bool Collider::checkCollision(Collider &other, float push)
 			{
 				move(intersectX * (1.0f - push), 0.0f);
 				other.move(-intersectX * push, 0.0f);
+
+				direction.x = 1.0f;
+				direction.y = 0.0f;
 			}
 			else
 			{
 				move(-intersectX * (1.0f - push), 0.0f);
 				other.move(intersectX * push, 0.0f);
+
+				direction.x = -1.0f;
+				direction.y = 0.0f;
 			}
 		}
 		else
@@ -47,11 +53,17 @@ bool Collider::checkCollision(Collider &other, float push)
 			{
 				move(0.0f, intersectY * (1.0f - push));
 				other.move(0.0f, -intersectY * push);
+
+				direction.x = 0.0f;
+				direction.y = 1.0f;
 			}
 			else
 			{
 				move(0.0f, -intersectY * (1.0f - push));
 				other.move(0.0f, intersectY * push);
+
+				direction.x = 0.0f;
+				direction.y = -1.0f;
 			}
 		}
 
