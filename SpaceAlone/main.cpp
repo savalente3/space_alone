@@ -6,11 +6,6 @@
 
 int main()
 {
-	if (getDatabase("C:/Users/Wallef/Documents/test.sqlite"))
-	{
-		query("CREATE TABLE users(age Int, name Varchar);");
-	}
-
 	sf::RenderWindow window(sf::VideoMode(1024, 720), "Space Alone", sf::Style::Close | sf::Style::Resize);
 	//sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 720.0f));
 
