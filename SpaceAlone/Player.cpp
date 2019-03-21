@@ -39,16 +39,7 @@ void Player::update(float deltaTime)
 	{
 		velocity.x += speed;
 	}
-	if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) < 0)
-	{
-		velocity.x -= speed;
-	}
-
-	if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 0)
-	{
-		velocity.x += speed;
-	}
-
+	
 	// end of joystick movement
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
