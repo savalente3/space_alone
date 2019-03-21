@@ -22,6 +22,35 @@ void Player::update(float deltaTime)
 {
 	velocity.x *= 0.2f;
 
+	// Joystick movement 
+
+	if (sf::Joystick::isButtonPressed(0, 0) && canJump) {
+		canJump = false;
+
+		velocity.y = -sqrtf(2.0f * 981.0f * jumpHeight);
+	}
+
+	if (sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) < 0)
+	{
+		velocity.x -= speed;
+	}
+
+	if (sf::Joystick::getAxisPosition(0, sf::Joystick::PovX) > 0)
+	{
+		velocity.x += speed;
+	}
+	if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) < 0)
+	{
+		velocity.x -= speed;
+	}
+
+	if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 0)
+	{
+		velocity.x += speed;
+	}
+
+	// end of joystick movement
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		velocity.x -= speed;
