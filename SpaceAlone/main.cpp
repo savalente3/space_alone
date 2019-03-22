@@ -1,7 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Player.hpp"
-#include "Enemy.hpp"
+#include "Platform.hpp"
 
 int main()
 {
@@ -21,11 +21,11 @@ int main()
 
 	sf::Texture enemyTexture;
 	enemyTexture.loadFromFile("C:/Users/Wallef/Pictures/platform.png");
-	Enemy enemy(&enemyTexture, sf::Vector2f(1100.0f, 220.0f), sf::Vector2f(510.0f, 700.0f));
+	Platform enemy(&enemyTexture, sf::Vector2f(1100.0f, 220.0f), sf::Vector2f(510.0f, 700.0f));
 
 	sf::Texture boxTexture;
 	boxTexture.loadFromFile("C:/Users/Wallef/Pictures/box.jpg");
-	Enemy box(&boxTexture, sf::Vector2f(50.0f, 50.0f), sf::Vector2f(600.0f, 563.0f));
+	Platform box(&boxTexture, sf::Vector2f(50.0f, 50.0f), sf::Vector2f(600.0f, 563.0f));
 
 	float deltaTime = 0.0f;
 	sf::Clock clock;

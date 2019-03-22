@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(sf::Texture *texture, sf::Vector2u imageCount, float switchTime, float speed, float jumpHeight) : animation(texture, imageCount, switchTime)
+Player::Player(sf::Texture *texture, sf::Vector2u totalImages, float switchTime, float speed, float jumpHeight) : animation(texture, totalImages, switchTime)
 {
 	this->speed = speed;
 	this->jumpHeight = jumpHeight;

@@ -8,7 +8,7 @@
 class Player
 {
 public:
-	Player(sf::Texture *texture, sf::Vector2u imageCount, float switchTime, float speed, float jumpHeight);
+	Player(sf::Texture *texture, sf::Vector2u totalImages, float switchTime, float speed, float jumpHeight);
 	~Player();
 
 	sf::Vector2f getPosition() { return body.getPosition(); }
