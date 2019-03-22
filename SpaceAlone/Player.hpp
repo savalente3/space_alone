@@ -12,14 +12,18 @@ public:
 	~Player();
 
 	sf::Vector2f getPosition() { return body.getPosition(); }
+	// update the animation
 	void update(float deltaTime);
+	// so that we can keep the body private
 	void draw(sf::RenderWindow &window);
 	void onCollision(sf::Vector2f direction);
 
 	Collider getCollider() { return Collider(body); }
 
 private:
+	// body of the player
 	sf::RectangleShape body;
+	// in order to add animations
 	Animation animation;
 	unsigned int row;
 	float speed;

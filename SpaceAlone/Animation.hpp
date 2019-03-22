@@ -15,11 +15,13 @@ public:
 	sf::IntRect uvRect;
 
 private:
+	// variables to calculate the size of each individual image on a spritesheet
 	sf::Vector2u totalImages;
 	sf::Vector2u currentImage;
 
-	float totalTime;
+	// variables to control how fast the animation is going to happen
 	float switchTime;
+	float totalTime;
 };
 
 #endif
