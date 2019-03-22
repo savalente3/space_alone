@@ -127,7 +127,6 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="CppSQLite3.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -135,8 +134,6 @@
   <ItemGroup>
     <ClInclude Include="Animation.hpp" />
     <ClInclude Include="Collider.hpp" />
-    <ClInclude Include="CppSQLite3.hpp" />
-    <ClInclude Include="database.h" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
